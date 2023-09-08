@@ -29,12 +29,12 @@ void PrintMatrixDouble(double[,] matrix)
         //Console.Write("|");
         for (int j = 0; j < matrix.GetLength(1); j++) 
         {
-            Console.Write($"{matrix[i, j], 5}");
+            Console.Write($"{matrix[i, j],10:F2}");
         }
        //Console.WriteLine("  |");
        Console.WriteLine();
     }
 }
 
-int[,] array2d = CreateMatrixRndDouble(8, 5, -100, 100);
+double[,] array2d = CreateMatrixRndDouble(8, 5, 0, 100);
 PrintMatrixDouble(array2d);
