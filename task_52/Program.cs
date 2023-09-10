@@ -71,7 +71,7 @@ double[] FindArray2DColumnAVG(int[,] matrix)
 }
 
 
-int[,] array2d = CreateMatrixRndInt(2, 10, 0, 10);
+int[,] array2d = CreateMatrixRndInt(10, 5, 0, 10);
 double[] arrayDouble = FindArray2DColumnAVG(array2d);
 PrintArray2D(array2d);
 Console.WriteLine();
