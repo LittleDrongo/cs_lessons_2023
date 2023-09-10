@@ -16,9 +16,9 @@ int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
     int[,] matrix = new int[rows, columns];
     Random rnd = new Random();
 
-    for(int i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < columns; j++)
+        for (int j = 0; j < columns; j++)
         {
             matrix[i, j] = rnd.Next(min, max + 1);
         }
@@ -31,23 +31,22 @@ void PrintArray(int[,] matrix)
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
 
-    for(int i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < columns; j++)
+        for (int j = 0; j < columns; j++)
         {
-            Console.Write($"{matrix[i, j], 5}");
+            Console.Write($"{matrix[i, j],5}");
         }
         Console.WriteLine();
     }
 }
 
-int ReturnValueByPosition2D (int[,] matrix, int row, int column)
+int ReturnValueByPosition2D(int[,] matrix, int row, int column)
 {
-    Console.Write($"{matrix[row, column], 5}");
     return (matrix[row, column]);
 }
 
-void FindNumberByPosition2D (int[,] matrix)
+void FindNumberByPosition2D(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
@@ -59,13 +58,20 @@ void FindNumberByPosition2D (int[,] matrix)
     Console.Write("Введите номер столбца: ");
     int column = Convert.ToInt32(Console.ReadLine());
 
-    if(row > rows || column > columns)
+    if (row < 0 || column < 0)
     {
-        Console.WriteLine("Такой позиции в двумерном массиве нет");
+        Console.WriteLine("Ошибка: Значение не должно быть меньше нуля");
     }
     else
     {
-        ReturnValueByPosition2D(matrix, row, column);
+        if (row > rows || column > columns)
+        {
+            Console.WriteLine("Такой позиции в двумерном массиве нет");
+        }
+        else
+        {
+            Console.WriteLine($"Значение в указанных координатах: {ReturnValueByPosition2D(matrix, row, column)}");
+        }
     }
 }
 
@@ -74,15 +80,3 @@ PrintArray(array2d);
 
 FindNumberByPosition2D(array2d);
 Console.WriteLine();
-
-//Console.WriteLine($"{array2d[3, 3], 5}");
-//Console.WriteLine($"{array2d[3, 3], 5}");
-
-/*
-    Метод PrintCheckIfError должен принимать результат метода
-    FindNumberByPosition и числа x и y - позиции элемента в матрице. 
-    Метод должен проверить, был ли найден элемент в матрице по указанным координатам (x и y), 
-    используя результаты из метода FindNumberByPosition. Если такого элемента нет, 
-    вывести на экран "There is no such index". 
-    Если элемент есть, вывести на экран "The number in [{x}, {y}] is {значение}".
-*/
