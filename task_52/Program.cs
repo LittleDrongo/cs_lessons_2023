@@ -51,7 +51,7 @@ void PrintArrayDouble(double[] arr)
 }
 
 
-double[] FindArray2DColumnAVG (int[,] matrix)
+double[] FindArray2DColumnAVG(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
@@ -63,9 +63,9 @@ double[] FindArray2DColumnAVG (int[,] matrix)
         sumColumns = 0;
         for (int j = 0; j < rows; j++)
         {
-            sumColumns += matrix[j,i];
+            sumColumns += matrix[j, i];
         }
-        arr[i] = sumColumns/rows;
+        arr[i] = sumColumns / rows;
     }
     return arr;
 }
